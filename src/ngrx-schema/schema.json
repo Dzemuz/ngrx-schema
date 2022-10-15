@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "my-first-schema",
-  "title": "my1er Schema",
+  "$id": "ngrx-schema",
+  "title": "Jujek Schema",
   "type": "object",
   "properties": {
     "name": {

@@ -9,18 +9,19 @@ function filterTemplates() {
     // if (!options.service) {
     //   return filter(path => !path.match(/\.service\.ts$/) && !path.match(/-item\.ts$/) && !path.match(/\.bak$/));
     // }
-    return schematics_2.filter(path => !path.match(/\.bak$/));
+    return (0, schematics_2.filter)(path => !path.match(/\.bak$/));
 }
 function default_1(options) {
     // TODO: Validate options and throw SchematicsException if validation fails
-    options.path = options.path ? core_1.normalize(options.path) : options.path;
-    const templateSource = schematics_2.apply(schematics_2.url('./files'), [
+    options.path = options.path ? (0, core_1.normalize)(options.path) : options.path;
+    const templateSource = (0, schematics_2.apply)((0, schematics_2.url)('./files'), [
         filterTemplates(),
-        schematics_2.template(Object.assign(Object.assign({}, stringUtils), options)),
+        (0, schematics_2.template)(Object.assign(Object.assign({}, stringUtils), options)),
+        // move('src/app/my-schema')
     ]);
-    return schematics_1.chain([
-        schematics_2.branchAndMerge(schematics_1.chain([
-            schematics_1.mergeWith(templateSource)
+    return (0, schematics_1.chain)([
+        (0, schematics_2.branchAndMerge)((0, schematics_1.chain)([
+            (0, schematics_1.mergeWith)(templateSource)
         ])),
     ]);
 }
